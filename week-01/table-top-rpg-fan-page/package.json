@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "table-top-rpg-fan-page",
+  "scripts": {
+    "start": "browser-sync start --server public --files public",
+    "deploy": "netlify deploy --prod --dir=public",
+    "setup-deploy": "app-app --deploy && yarn deploy",
+    "postdeploy": "echo 'Your site was deployed to https://table-top-rpg-fan-page-markdewey.netlify.com'"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0"
+  },
+  "homepage": "https://table-top-rpg-fan-page-markdewey.netlify.com"
+}
