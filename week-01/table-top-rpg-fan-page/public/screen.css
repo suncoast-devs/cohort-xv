@@ -9,4 +9,58 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  background-color: #1251c5;
+  color: pink;
+}
+
+.page-title {
+  color: rgb(159, 222, 243);
+  border: 3px solid rgb(49, 185, 49);
+  padding: 2rem;
+  text-align: center;
+}
+
+header blockquote {
+  background-color: rgb(0, 255, 255);
+  text-align: center;
+  padding: 1rem;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+nav ul li {
+  color: burlywood;
+  background-color: darkgreen;
+  border: 5px dotted orange;
+  padding: 1rem;
+  margin: 0.25rem;
+  width: 33%;
+}
+
+nav .menu-item {
+  background-color: darkgreen;
+  border: 5px dotted orange;
+  padding: 1rem;
+  margin: 0.25rem;
+  color: yellow;
+}
+
+footer .menu-item {
+  color: purple;
+}
+
+.rules-and-story, .what-are-table-tops, .talk-about-dice {
+  background-color: rgb(133, 112, 73);
+  color: rgb(12, 11, 11);
+  padding: 1rem 1rem 1rem 1rem;
+  margin: 1rem;
+  box-shadow: 0 8px 6px -6px yellowgreen;
 }
