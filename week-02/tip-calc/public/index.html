@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tip Calc</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/screen.css" />
+  </head>
+  <body>
+    <h1>TC</h1>
+    <main>
+      <input class="bill-total" type="number" />
+      <ul>
+        <li>
+          15% - $<span id="fifteen-percent">1.00</span>
+          <button class="button-15">SELECT</button>
+        </li>
+        <li>
+          18% - $<span id="eighteen-percent">1.50</span>
+          <button class="button-18">SELECT</button>
+        </li>
+        <li>
+          20% - $<span id="twenty-percent">2.00</span>
+          <button class="button-20">SELECT</button>
+        </li>
+      </ul>
+      <h2>total: $<span id="total">1.00</span></h2>
+    </main>
+    <script src="/main.js" charset="utf-8"></script>
+  </body>
+</html>
