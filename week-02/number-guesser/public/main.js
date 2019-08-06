@@ -10,20 +10,27 @@ const checkGuess = () => {
   //get the user's guess
   const userGuess = document.querySelector('#numberGuessed').value
   console.log(userGuess)
-  // compare the user guess and target number
-  if (parseInt(userGuess) === targetNumber) {
-    // display yes!
-    console.log('matched!')
-    outputMessage.textContent = 'Yes! Correct! You Win!'
-    outputMessage.classList.remove('incorrect-guess')
-    outputMessage.classList.add('correct-guess')
-    document.querySelector('.reset-button').classList.remove('hide')
+  // make sure the userGuess is bewteen 0 and 10
+  if (userGuess >= 0 && userGuess <= 10) {
+    // valid guess
+    // compare the user guess and target number
+    if (parseInt(userGuess) === targetNumber) {
+      // display yes!
+      console.log('matched!')
+      outputMessage.textContent = 'Yes! Correct! You Win!'
+      outputMessage.classList.remove('incorrect-guess')
+      outputMessage.classList.add('correct-guess')
+      document.querySelector('.reset-button').classList.remove('hide')
+    } else {
+      // display no!
+      console.log('no match')
+      outputMessage.textContent = 'Nope! Try again!'
+      outputMessage.classList.remove('correct-guess')
+      outputMessage.classList.add('incorrect-guess')
+    }
   } else {
-    // display no!
-    console.log('no match')
-    outputMessage.textContent = 'Nope! Try again!'
-    outputMessage.classList.remove('correct-guess')
-    outputMessage.classList.add('incorrect-guess')
+    // out of the range
+    outputMessage.textContent = 'The number is between 0 and 10!'
   }
 }
 
