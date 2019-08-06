@@ -20,3 +20,7 @@ body {
   color: lightblue;
   background-color: darkblue;
 }
+
+.hide {
+  display: none;
+}

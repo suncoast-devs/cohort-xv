@@ -1,4 +1,5 @@
 let targetNumber = 0
+const outputMessage = document.querySelector('.result')
 
 const main = () => {
   targetNumber = Math.ceil(Math.random() * 10)
@@ -13,16 +14,31 @@ const checkGuess = () => {
   if (parseInt(userGuess) === targetNumber) {
     // display yes!
     console.log('matched!')
-    document.querySelector('.result').textContent = 'Yes! Correct! You Win!'
-    document.querySelector('.result').classList.remove('incorrect-guess')
-    document.querySelector('.result').classList.add('correct-guess')
+    outputMessage.textContent = 'Yes! Correct! You Win!'
+    outputMessage.classList.remove('incorrect-guess')
+    outputMessage.classList.add('correct-guess')
+    document.querySelector('.reset-button').classList.remove('hide')
   } else {
     // display no!
     console.log('no match')
-    document.querySelector('.result').textContent = 'Nope! Try again!'
-    document.querySelector('.result').classList.add('incorrect-guess')
+    outputMessage.textContent = 'Nope! Try again!'
+    outputMessage.classList.remove('correct-guess')
+    outputMessage.classList.add('incorrect-guess')
   }
+}
+
+const resetGame = () => {
+  // clear input
+  document.querySelector('#numberGuessed').value = ''
+  // target number
+  main()
+  // output message
+  outputMessage.textContent = 'make your guess!!?!?!'
+  outputMessage.classList.remove('correct-guess')
+  outputMessage.classList.remove('incorrect-guess')
+  document.querySelector('.reset-button').classList.add('hide')
 }
 
 document.addEventListener('DOMContentLoaded', main)
 document.querySelector('.do-guess').addEventListener('click', checkGuess)
+document.querySelector('.reset-button').addEventListener('click', resetGame)
