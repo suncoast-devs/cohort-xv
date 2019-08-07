@@ -6,7 +6,7 @@ const lipsumJokesSourceArray = [
   'There is no chin behind Chuck Norris’ beard. There is only another fist.'
 ]
 
-const generateLipsum = () => {
+const generateAParagraph = () => {
   console.log('clicked!! or kicked!!!')
   // get the number of jokes the user wants
   const numberOfJokes = document.querySelector('#numberOfJokes').value
@@ -24,10 +24,29 @@ const generateLipsum = () => {
   }
   console.log('ending loop')
   console.log('lipsum => ', lipsum)
-  document.querySelector('.lipsum-output').textContent = lipsum
+  // document.querySelector('.lipsum-output').textContent = lipsum
+  // create a p tag
+  const p = document.createElement('p')
+  // set the content of the p tag
+  p.textContent = lipsum
+  // add the p tag to the dom
+  document.querySelector('.lipsum-output').appendChild(p)
+}
 
-  // add that to a new string
-  // put that new string into the HTML (DOM)
+const generateLipsum = () => {
+  // clear the section before
+  document.querySelector('.lipsum-output').textContent = ''
+
+  // get the number of paragraphs the user wants
+  let numberOfParagraphs = document.querySelector('#numberOfParagraphs').value
+  console.log(numberOfParagraphs)
+  if (!numberOfParagraphs) {
+    numberOfParagraphs = 1
+  }
+  // do a for loop and create that number of paragraphs
+  for (let i = 0; i < numberOfParagraphs; i++) {
+    generateAParagraph()
+  }
 }
 
 document.querySelector('.go-button').addEventListener('click', generateLipsum)
