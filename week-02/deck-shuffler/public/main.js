@@ -68,11 +68,19 @@ const getPlayerHandTotal = () => {
   console.log(handTotal)
 }
 
+const basicForLoop = () => {
+  for (let i = 10; i > 0; i--) {
+    console.log(i)
+  }
+  console.log('blast off')
+}
+
 const main = () => {
-  createDeck()
-  shuffleDeck()
-  dealPlayerHand()
-  getPlayerHandTotal()
+  // createDeck()
+  // shuffleDeck()
+  // dealPlayerHand()
+  // getPlayerHandTotal()
+  basicForLoop()
 }
 
 document.addEventListener('DOMContentLoaded', main)
