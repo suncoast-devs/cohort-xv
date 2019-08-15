@@ -1,5 +1,3 @@
-const API_URL = 'https://dog.ceo/api/breed/hound/images'
-
 // const mainFetch = () => {
 //   // API call to https://dog.ceo/api/breed/hound/images
 //   fetch(API_URL)
@@ -24,16 +22,21 @@ const API_URL = 'https://dog.ceo/api/breed/hound/images'
 //     })
 // }
 
-const mainAsync = async () => {
+const createUrl = breed => {
+  const API_URL = `https://dog.ceo/api/breed/${breed}/images`
+  return API_URL
+}
+
+const getDogPictures = async breed => {
   // API call to https://dog.ceo/api/breed/hound/images
-  const response = await fetch(API_URL)
+  const response = await fetch(createUrl(breed))
   const dogData = await response.json()
 
   console.log(dogData)
   // display all images I get back
   const parent = document.querySelector('ul')
   parent.textContent = ''
-  dogData.message.forEach(dog => {
+  dogData.message.slice(0, 10).forEach(dog => {
     // create a new image
     const img = document.createElement('img')
     img.src = dog
@@ -45,4 +48,16 @@ const mainAsync = async () => {
   })
 }
 
+const mainAsync = async () => {
+  getDogPictures('hound')
+}
+
+const searchForDog = () => {
+  console.log('search for dog')
+  // get the current input value
+  const searchTerm = document.querySelector('.search-box').value
+  getDogPictures(searchTerm)
+}
+
 document.addEventListener('DOMContentLoaded', mainAsync)
+document.querySelector('.search-button').addEventListener('click', searchForDog)
