@@ -1,21 +1,21 @@
 class Dice {
-  constructor(sides, name) {
+  constructor (sides, name) {
     this.sides = sides
     this.name = name
     this.currentResult = 0
     this.pastRolls = []
   }
 
-  roll() {
+  roll () {
     this.currentResult = Math.ceil(Math.random() * this.sides)
     this.pastRolls.push(this.currentResult)
   }
 
-  displayResult() {
+  displayResult () {
     document.querySelector('.result').textContent = this.currentResult
   }
 
-  displayPastResults() {
+  displayPastResults () {
     console.log('past results')
     const parent = document.querySelector('.past-results')
     parent.textContent = ''
@@ -26,7 +26,7 @@ class Dice {
     })
   }
 
-  doTheRoll() {
+  doTheRoll () {
     this.roll()
     this.displayResult()
     this.displayPastResults()
