@@ -10,3 +10,27 @@ body {
   margin: 0;
   min-height: 100%;
 }
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.brown {
+  background-color: brown;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.green {
+  background-color: green;
+}
+
+.purple {
+  background-color: purple;
+}
