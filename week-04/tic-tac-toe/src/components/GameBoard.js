@@ -4,6 +4,10 @@ export class GameBoard extends Component {
   state = {
     board: [['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9']]
   }
+
+  cellClicked = (x, y) => {
+    console.log('clicked', x, y)
+  }
   render() {
     return (
       <>
@@ -16,7 +20,7 @@ export class GameBoard extends Component {
                   <tr key={i}>
                     {col.map((row, j) => {
                       return (
-                        <td key={j}>
+                        <td key={j} onClick={() => this.cellClicked(i, j)}>
                           {i}, {j}
                         </td>
                       )
