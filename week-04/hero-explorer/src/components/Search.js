@@ -23,6 +23,21 @@ export class Search extends Component {
     // this.setState({
     //   searchResults: data.results
     // })
+
+    fetch(
+      `https://www.superheroapi.com/api.php/10155377111995672/search/${
+        this.state.userInput
+      }`
+    )
+      .then(resp => {
+        return resp.json()
+      })
+      .then(data => {})
+    this.setState({
+      searchResults: data.results
+    })
+    console.log(data)
+
     this.makeApiCall(this.state.userInput)
   }
 
