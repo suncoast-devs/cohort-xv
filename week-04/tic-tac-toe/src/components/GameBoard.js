@@ -2,25 +2,36 @@ import React, { Component } from 'react'
 
 export class GameBoard extends Component {
   state = {
-    board: [['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9']],
+    board: [['', '', ''], ['', '', ''], ['', '', '']],
     currentPlayer: 'X'
   }
 
   cellClicked = (x, y) => {
     console.log('clicked', x, y)
-    // TODO: toggle the turn
-    const _board = this.state.board
-    _board[x][y] = this.state.currentPlayer
-    const nextPlayer = this.state.currentPlayer === 'X' ? 'O' : 'X'
+
+    if (!this.state.board[x][y]) {
+      const _board = this.state.board
+      _board[x][y] = this.state.currentPlayer
+      const nextPlayer = this.state.currentPlayer === 'X' ? 'O' : 'X'
+      this.setState({
+        board: _board,
+        currentPlayer: nextPlayer
+      })
+    }
+  }
+
+  reset = () => {
     this.setState({
-      board: _board,
-      currentPlayer: nextPlayer
+      board: [['', '', ''], ['', '', ''], ['', '', '']],
+      currentPlayer: 'X'
     })
   }
+
   render() {
     return (
       <>
         <h1>Tic Tac Toe!</h1>
+        <button onClick={this.reset}>reset</button>
         <main>
           <table>
             <tbody>
