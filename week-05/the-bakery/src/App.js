@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import HomePage from './components/HomePage'
-import Pies from './components/Pies'
-import Cakes from './components/Cakes'
-import CakePage from './components/CakePage'
+import BakedGoods from './components/BakedGoods'
+// import Pies from './components/Pies'
+// import Cakes from './components/Cakes'
+import BakedGood from './components/BakedGood'
 
 class App extends Component {
   render() {
@@ -22,9 +23,11 @@ class App extends Component {
         </header>
         <Switch>
           <Route exact path="/" component={HomePage}></Route>
-          <Route exact path="/pies" component={Pies}></Route>
-          <Route exact path="/cakes" component={Cakes}></Route>
-          <Route exact path="/cakes/:title" component={CakePage}></Route>
+          <Route exact path="/:category" component={BakedGoods}></Route>
+          <Route exact path="/:category/:title" component={BakedGood}></Route>
+          {/* <Route exact path="/pies" component={Pies}></Route>
+          <Route exact path="/cakes" component={Cakes}></Route> */}
+          {/* <Route exact path="/cakes/:title" component={CakePage}></Route> */}
         </Switch>
       </Router>
     )

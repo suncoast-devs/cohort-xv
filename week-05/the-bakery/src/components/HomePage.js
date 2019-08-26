@@ -14,6 +14,9 @@ export class HomePage extends Component {
             <li>
               <Link to="/cakes">Totally not a lie about Cakes!!</Link>
             </li>
+            <li>
+              <Link to="/cookies">For the monsters!</Link>
+            </li>
           </ul>
         </main>
       </>
