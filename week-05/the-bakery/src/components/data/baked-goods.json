@@ -1,0 +1,23 @@
+[
+  {
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP9CquUTD-ynFzZ40gDaA8UfOi_uSpaCbZuQNCva79thuYCLsPyA",
+    "title": "Unicorn",
+    "numberLeft": 1,
+    "feeds": 3,
+    "containsNuts": true
+  },
+  {
+    "image": "https://aclassictwist.com/wp-content/uploads/2014/08/Birthday-Ice-Cream-Cake-480x360.jpg",
+    "title": "Birthday",
+    "numberLeft": 55,
+    "feeds": 1,
+    "containsNuts": true
+  },
+  {
+    "image": "https://i.kym-cdn.com/photos/images/newsfeed/000/115/357/portal-cake.jpg?1318992465",
+    "title": "Is a Lie!",
+    "numberLeft": 47,
+    "feeds": 1,
+    "containsNuts": false
+  }
+]
