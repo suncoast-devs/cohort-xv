@@ -1,0 +1,51 @@
+:root {
+  font: 16px / 1 sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+:root {
+  font: 16px / 1 sans-serif;
+  --taupe-grey: #8B8989;
+  --bright-yellow: #FFB52C;
+  --light-gray: #CFCCD6;
+  --font: 'Original Surfer', cursive;
+  --maximum-blue-purple: #B7B5E4;
+}
+
+* {
+  font-family: var(--font);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--taupe-grey);
+  color: var(--light-gray);
+}
+
+button {
+  color: var(--bright-yellow);
+  font-size: 2rem;
+  font-weight: 800;
+  background-color: var(--maximum-blue-purple);
+  text-shadow: 2px 2px 0 black;
+}
