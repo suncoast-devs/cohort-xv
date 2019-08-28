@@ -18,6 +18,7 @@ body {
   --light-gray: #CFCCD6;
   --font: 'Original Surfer', cursive;
   --maximum-blue-purple: #B7B5E4;
+  --something-darker: rgb(68, 32, 68);
 }
 
 * {
@@ -43,9 +44,9 @@ header {
 }
 
 button {
-  color: var(--bright-yellow);
-  font-size: 2rem;
+  color: var(--something-darker);
+  font-size: 1rem;
   font-weight: 800;
   background-color: var(--maximum-blue-purple);
-  text-shadow: 2px 2px 0 black;
+  /* text-shadow: 2px 2px 0 black; */
 }
