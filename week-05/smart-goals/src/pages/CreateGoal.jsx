@@ -6,14 +6,21 @@ const CreateGoal = () => {
   const [highLevelGoal, setHighLevelGoal] = useState('')
   const [specific, setSpecific] = useState('')
   const [measurable, setMeasurable] = useState('')
+  const [achievable, setAchievable] = useState('')
+  const [relevant, setRelevant] = useState('')
+  const [timeBound, setTimeBound] = useState('')
 
   const submitForm = async e => {
     e.preventDefault()
     const resp = await axios.post(
       'https://sdg-smart-goals.herokuapp.com/api/Goals',
       {
+        highLevelGoal,
         specific,
-        highLevelGoal
+        measurable,
+        achievable,
+        relevant,
+        timeBound
       }
     )
     console.log(resp.data)
@@ -45,19 +52,39 @@ const CreateGoal = () => {
         </section>
         <section>
           <label>Measurable</label>
-          <input type="text" placeholder="My Goal is..." />
+          <input
+            type="text"
+            placeholder="My Goal is..."
+            value={measurable}
+            onChange={e => setMeasurable(e.target.value)}
+          />
         </section>
         <section>
           <label>Achievable</label>
-          <input type="text" placeholder="My Goal is..." />
+          <input
+            type="text"
+            placeholder="My Goal is..."
+            value={achievable}
+            onChange={e => setAchievable(e.target.value)}
+          />
         </section>
         <section>
           <label>Relatable</label>
-          <input type="text" placeholder="My Goal is..." />
+          <input
+            type="text"
+            placeholder="My Goal is..."
+            value={relevant}
+            onChange={e => setRelevant(e.target.value)}
+          />
         </section>
         <section>
           <label>TimeBound</label>
-          <input type="text" placeholder="My Goal is..." />
+          <input
+            type="text"
+            placeholder="My Goal is..."
+            value={timeBound}
+            onChange={e => setTimeBound(e.target.value)}
+          />
         </section>
         <button>Add goal</button>
       </form>
