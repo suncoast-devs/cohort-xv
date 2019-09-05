@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
-import HelloWorld from './components/HelloWorld'
+import TipCalculator from './components/TipCalculator'
 
 class App extends Component {
   render() {
-    return <HelloWorld />
+    return (
+      <>
+        <TipCalculator />
+      </>
+    )
   }
 }
 
