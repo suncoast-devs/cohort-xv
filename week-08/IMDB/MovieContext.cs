@@ -27,5 +27,9 @@ namespace IMDB
     {
       modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
     }
+
+    // public DbSet<TableSchema> TableName {get;set;}
+    public DbSet<Movie> Movies { get; set; }
+    // public DbSet<Actor> Actors {get;set;}
   }
 }
