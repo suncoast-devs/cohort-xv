@@ -1,0 +1,11 @@
+/Users/markdewey/lecture/cohort-xv/week-07/PersistentBugger/bin/Debug/netcoreapp2.2/PersistentBugger.deps.json
+/Users/markdewey/lecture/cohort-xv/week-07/PersistentBugger/bin/Debug/netcoreapp2.2/PersistentBugger.runtimeconfig.json
+/Users/markdewey/lecture/cohort-xv/week-07/PersistentBugger/bin/Debug/netcoreapp2.2/PersistentBugger.runtimeconfig.dev.json
+/Users/markdewey/lecture/cohort-xv/week-07/PersistentBugger/bin/Debug/netcoreapp2.2/PersistentBugger.dll
+/Users/markdewey/lecture/cohort-xv/week-07/PersistentBugger/bin/Debug/netcoreapp2.2/PersistentBugger.pdb
+/Users/markdewey/lecture/cohort-xv/week-07/PersistentBugger/obj/Debug/netcoreapp2.2/PersistentBugger.csprojAssemblyReference.cache
+/Users/markdewey/lecture/cohort-xv/week-07/PersistentBugger/obj/Debug/netcoreapp2.2/PersistentBugger.csproj.CoreCompileInputs.cache
+/Users/markdewey/lecture/cohort-xv/week-07/PersistentBugger/obj/Debug/netcoreapp2.2/PersistentBugger.AssemblyInfoInputs.cache
+/Users/markdewey/lecture/cohort-xv/week-07/PersistentBugger/obj/Debug/netcoreapp2.2/PersistentBugger.AssemblyInfo.cs
+/Users/markdewey/lecture/cohort-xv/week-07/PersistentBugger/obj/Debug/netcoreapp2.2/PersistentBugger.dll
+/Users/markdewey/lecture/cohort-xv/week-07/PersistentBugger/obj/Debug/netcoreapp2.2/PersistentBugger.pdb

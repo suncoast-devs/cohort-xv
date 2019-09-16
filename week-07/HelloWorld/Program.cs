@@ -28,7 +28,13 @@ namespace HelloWorld
 
     static void Main(string[] args)
     {
+
+
+
       Console.WriteLine("Hello World!");
+      Console.WriteLine(Math.Pow(0, 0));
+
+
       Console.WriteLine("Hello XV");
 
       // variables
