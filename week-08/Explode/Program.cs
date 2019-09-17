@@ -14,12 +14,7 @@ namespace Explode
       }
       */
 
-      var x = String.Join("",
-       s.Select(
-           (letter, i) =>
-           String.Join("", Enumerable.Repeat(letter, (int)Char.GetNumericValue(letter)))));
 
-      return x;
     }
 
     static void Main(string[] args)
