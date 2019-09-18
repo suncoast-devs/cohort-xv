@@ -13,9 +13,9 @@ namespace BlogApi.Controllers
 
     private DatabaseContext context;
 
-    public BlogController()
+    public BlogController(DatabaseContext _context)
     {
-      this.context = new DatabaseContext();
+      this.context = _context;
     }
 
     [HttpPost]
