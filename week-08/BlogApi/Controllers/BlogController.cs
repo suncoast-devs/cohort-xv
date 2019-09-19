@@ -3,6 +3,7 @@ using System.Linq;
 using blogapi;
 using BlogApi.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlogApi.Controllers
 {
@@ -53,8 +54,43 @@ namespace BlogApi.Controllers
       {
         return Ok(blog);
       }
+    }
+
+    [HttpPut("{id}")]
+    public ActionResult<Blog> UpdateBlog(int id, [FromBody]Blog newDetails)
+    {
+      if (id != newDetails.Id)
+      {
+        return BadRequest();
+      }
+
+
+      context.Entry(newDetails).State = EntityState.Modified;
+      context.SaveChanges();
+      return newDetails;
+
+      // context.Blogs.Update(newDetails);
+      // context.SaveChanges();
+      // return newDetails;
+    }
+
+    [HttpDelete("{id}")]
+    public ActionResult DeleteBlog(int id)
+    {
+      var blog = context.Blogs.FirstOrDefault(f => f.Id == id);
+      if (blog == null)
+      {
+        return NotFound();
+      }
+      else
+      {
+        context.Blogs.Remove(blog);
+        context.SaveChanges();
+        return Ok(new { Message = "Blog was successfully delete", Blog = blog });
+      }
 
     }
+
 
   }
 }
