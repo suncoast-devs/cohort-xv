@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using blogapi;
 using BlogApi.Models;
+using BlogApi.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -86,11 +87,29 @@ namespace BlogApi.Controllers
       {
         context.Blogs.Remove(blog);
         context.SaveChanges();
-        return Ok(new { Message = "Blog was successfully delete", Blog = blog });
+        return Ok(new DeleteResponse { Blog = blog });
       }
-
     }
 
+    [HttpPost("{blogId}/comments")]
+    public ActionResult<Comment> CreateComment(int blogId, [FromBody]Comment comment)
+    {
+      // check if the blog exists
+      var blog = context.Blogs.FirstOrDefault(f => f.Id == blogId);
+      if (blog == null)
+      {
+        return NotFound();
+      }
+      else
+      {
+        comment.BlogId = blogId;
+        context.Comments.Add(comment);
+        context.SaveChanges();
+        return Ok(new
+        {
 
+        });
+      }
+    }
   }
 }
