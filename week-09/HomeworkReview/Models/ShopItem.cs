@@ -10,6 +10,10 @@ namespace HomeworkReview.Models
     public string ShortDescription { get; set; }
     public int NumberinStock { get; set; }
     public int Price { get; set; }
-    public DateTime DateOrdered { get; set; }
+    public DateTime DateOrdered { get; set; } = DateTime.Now;
+
+    public int? LocationId { get; set; }
+    public Location Location { get; set; }
+
   }
 }

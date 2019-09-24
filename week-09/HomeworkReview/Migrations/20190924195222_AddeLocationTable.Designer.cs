@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using homeworkreview;
@@ -9,9 +10,10 @@ using homeworkreview;
 namespace homeworkreview.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20190924195222_AddeLocationTable")]
+    partial class AddeLocationTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,8 +44,6 @@ namespace homeworkreview.Migrations
 
                     b.Property<DateTime>("DateOrdered");
 
-                    b.Property<int?>("LocationId");
-
                     b.Property<string>("Name");
 
                     b.Property<int>("NumberinStock");
@@ -56,16 +56,7 @@ namespace homeworkreview.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LocationId");
-
                     b.ToTable("ShopItems");
-                });
-
-            modelBuilder.Entity("HomeworkReview.Models.ShopItem", b =>
-                {
-                    b.HasOne("HomeworkReview.Models.Location", "Location")
-                        .WithMany("ShopItems")
-                        .HasForeignKey("LocationId");
                 });
 #pragma warning restore 612, 618
         }

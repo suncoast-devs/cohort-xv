@@ -44,6 +44,7 @@ namespace homeworkreview
       modelBuilder.HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
     }
     public DbSet<ShopItem> ShopItems { get; set; }
+    public DbSet<Location> Locations { get; set; }
 
   }
 }
