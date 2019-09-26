@@ -24,16 +24,58 @@ namespace IntroToAuth.Controllers
     }
 
 
-    // email
-    // password
 
+    [HttpPost("login")]
+    public ActionResult Login([FromBody] RegisterViewModel userData)
+    {
+      // find the user
+      var user = context.Users.FirstOrDefault(f => f.Email.ToLower() == userData.Email.ToLower());
+      if (user == null)
+      {
+        return BadRequest(new { Message = "User is not found" });
+      }
+      else
+      {
+        var passwordResult = new PasswordHasher<User>().VerifyHashedPassword(user, user.HashedPassword, userData.Password);
+
+        // compare the hashed passwords
+        if (passwordResult == PasswordVerificationResult.Success)
+        {
+
+        }
+        else if (passwordResult == PasswordVerificationResult.Failed)
+        {
+          return BadRequest(new { Message = "Password was trash. Fact" });
+        }
+        // return a new token for the user
+        // define its lifespan
+        var expirationTime = DateTime.UtcNow.AddSeconds(259200);
+        var payload = new SecurityTokenDescriptor
+        {
+          Subject = new ClaimsIdentity(new[]{
+               new Claim(ClaimTypes.Name, user.Email),
+               new Claim("id", user.Id.ToString())
+            }),
+          Expires = expirationTime,
+          SigningCredentials = new SigningCredentials(
+              new SymmetricSecurityKey(Encoding.UTF8.GetBytes("REALLY LONG RANDOM STRING THAT IS A THING THAT SUUUUUUPER SECRET")),
+              SecurityAlgorithms.HmacSha256Signature
+          )
+
+        };
+        var tokenGenerator = new JwtSecurityTokenHandler();
+        var token = tokenGenerator.WriteToken(tokenGenerator.CreateToken(payload));
+
+        // return the token
+        return Ok(new { token = token, user, message = "Hello!" });
+      }
+    }
 
     [HttpPost("register")]
     public ActionResult Register([FromBody] RegisterViewModel userData)
     {
       // check if the user already exists
-      var exists = false;
-      //   var exists = context.Users.Any(user => user.Email.ToLower() == userData.Email.ToLower());
+      var exists = context.Users.Any(user => user.Email.ToLower() == userData.Email.ToLower());
       if (exists)
       {
         return BadRequest(new { Message = "User with the that email exists" });
