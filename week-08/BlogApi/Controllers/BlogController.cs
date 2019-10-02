@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using blogapi;
 using BlogApi.Models;
 using BlogApi.ViewModels;
@@ -21,31 +22,30 @@ namespace BlogApi.Controllers
     }
 
     [HttpPost]
-    public ActionResult<Blog> CreateEntry([FromBody]Blog entry)
+    public async Task<ActionResult<Blog>> CreateEntry([FromBody]Blog entry)
     {
       // 2. do the thing 
-      context.Blogs.Add(entry);
+      await context.Blogs.AddAsync(entry);
       // 3. save the thing
-      context.SaveChanges();
+      await context.SaveChangesAsync();
       return entry;
-
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<Blog>> GetAllBlogs()
+    public async Task<ActionResult<IEnumerable<Blog>>> GetAllBlogs()
     {
       // 2. do the thing
       var blogs = context.Blogs.OrderByDescending(blog => blog.DateCreated);
 
       // 3. return the thing
-      return blogs.ToList();
+      return await blogs.ToListAsync();
     }
 
     [HttpGet("{id}")]
-    public ActionResult GetOneBlog(int id)
+    public async Task<ActionResult> GetOneBlog(int id)
     {
       // 2. Do the thing 
-      var blog = context.Blogs.FirstOrDefault(b => b.Id == id);
+      var blog = await context.Blogs.FirstOrDefaultAsync(b => b.Id == id);
       // 3. return the thing
       if (blog == null)
       {
